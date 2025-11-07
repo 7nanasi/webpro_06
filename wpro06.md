@@ -25,3 +25,20 @@ hand | text | ユーザの手 | グー/チョキ/パー
 win | hidden | 勝利数 | これまでの勝利数
 total | hidden | 対戦数 | これまでの対戦数
 
+#### データ登録画面にリダイレクトする
+
+```mermaid
+stateDiagram-v2
+    [*] --> /public/keiyo_add.html
+    /public/keiyo_add.html --> /keiyo_add
+    /keiyo_add --> /public/keiyo_add.html:リダイレクト
+```
+
+#### 一覧表示する
+
+```mermaid
+stateDiagram-v2
+    [*] --> /public/keiyo_add.html
+    /public/keiyo_add.html --> /keiyo_add
+    /keiyo_add --> /view/keiyo.ejsによる一覧表示
+```
