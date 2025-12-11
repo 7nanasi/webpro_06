@@ -21,7 +21,7 @@ app.get("/keiyo2", (req, res) => {
   res.render('keiyo2', {data: station2} );
 });
 
-// Create
+// Create,http://localhost:8080/public/keiyo2_new.html
 app.get("/keiyo2/create", (req, res) => {
   res.redirect('/public/keiyo2_new.html');
 });
