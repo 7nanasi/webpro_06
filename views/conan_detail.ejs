@@ -1,0 +1,23 @@
+<!Doctype html>
+<html>
+<head>
+  <link rel="stylesheet" href="/public/style.css">
+  <meta charset="utf-8">
+  <title><%= data.name %></title>
+</head>
+<body>
+  <h2><%= data.name %>の詳細</h2>
+  <table>
+    <tr><th>項目</th><th>データ</th></tr>
+    <tr><td>ID</td><td><%= data.id %></td></tr>
+    <tr><td>作品名</td><td><%= data.name %></td></tr>
+    <tr><td>公開年</td><td><%= data.year %></td></tr>
+    <tr><td>あらすじ</td><td><%= data.summary %></td></tr>
+    <tr><td>見どころ</td><td><%= data.point %></td></tr>
+  </table>
+  <a href="/conan/edit/<%= index %>">編集</a>
+  <a href="/conan">一覧に戻る</a>
+</body>
+</html>
+
+<%# 詳細画面 %>

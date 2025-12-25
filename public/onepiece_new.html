@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <link rel="stylesheet" href="/public/style.css">
+    <meta charset="UTF-8">
+    <title>ストーリー追加</title>
+</head>
+<body>
+    <h2>新しいストーリーを登録</h2>
+    <form action="/onepiece" method="POST">
+        <label for="name">編名:</label><br>
+        <input type="text" name="name" required><br>
+
+        <label for="episodes">収録話数:</label><br>
+        <input type="text" name="episodes"><br>
+
+        <label for="summary">あらすじ:</label><br>
+        <input type="text" name="summary"><br>
+
+        <label for="point">見どころ:</label><br>
+        <input type="text" name="point"><br>
+        <input type="submit" value="登録">
+    </form>
+    <a href="/onepiece">一覧に戻る</a>
+</body>
+</html>

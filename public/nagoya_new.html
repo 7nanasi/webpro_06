@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+    <link rel="stylesheet" href="/public/style.css">
+    <meta charset="UTF-8">
+    <title>観光地追加</title>
+</head>
+<body>
+    <h2>新しい観光地を登録</h2>
+    <form action="/nagoya" method="POST">
+        <label for="name">観光地名:</label><br>
+        <input type="text" name="name" required><br>
+<!--文字入力欄、required必須入力-->
+        <label for="address">住所:</label><br>
+        <input type="text" name="address"><br>
+        <label for="summary">紹介文:</label><br>
+        <input type="text" name="summary"><br>
+        <label for="point">特徴:</label><br>
+        <input type="text" name="point"><br>
+        <input type="submit" value="登録">
+    </form>
+    <a href="/nagoya">一覧に戻る</a>
+</body>
+</html>
+
+<!--新規登録フォーム-->
+<!--<label for="point">紹介文:</label><br>
+<textarea name="point"></textarea><br>-->

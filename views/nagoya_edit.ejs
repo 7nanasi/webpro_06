@@ -1,0 +1,33 @@
+<!Doctype html>
+<html>
+<head>
+
+  <link rel="stylesheet" href="/public/style.css">
+
+  <meta charset="utf-8">
+  <title><%= data.name %>の編集</title>
+</head>
+<body>
+  <h2><%= data.name %>の編集</h2>
+  <form action="/nagoya/update/<%= index %>" method="POST">
+    <label for="name">観光地名:</label><br>
+    <input type="text" name="name" value="<%= data.name %>" required><br>
+
+    <label for="address">住所:</label><br>
+    <input type="text" name="address" value="<%= data.address %>"><br>
+
+    <label for="summary">紹介文:</label><br>
+    <input type="text" name="summary" value="<%= data.summary %>"><br>
+
+    <label for="point">特徴:</label><br>
+    <input type="text" name="point" value="<%= data.point %>"><br>
+    <input type="submit" value="更新">
+  </form>
+  <a href="/nagoya">一覧に戻る</a>
+</body>
+</html>
+
+<%# 編集画面 %>
+
+<!--　<label for="point">紹介文:</label><br>
+  <textarea name="point"><%= data.point %></textarea><br>　-->

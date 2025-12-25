@@ -1,0 +1,26 @@
+<!Doctype html>
+<html>
+<head>
+  <link rel="stylesheet" href="/public/style.css">
+  <meta charset="utf-8">
+  <title><%= data.name %>の編集</title>
+</head>
+<body>
+  <h2><%= data.name %>の編集</h2>
+  <form action="/onepiece/update/<%= index %>" method="POST">
+    <label for="name">編名:</label><br>
+    <input type="text" name="name" value="<%= data.name %>" required><br>
+
+    <label for="episodes">収録話数:</label><br>
+    <input type="text" name="episodes" value="<%= data.episodes %>"><br>
+
+    <label for="summary">あらすじ:</label><br>
+    <input type="text" name="summary" value="<%= data.summary %>"><br>
+
+    <label for="point">見どころ:</label><br>
+    <input type="text" name="point" value="<%= data.point %>"><br>
+    <input type="submit" value="更新">
+  </form>
+  <a href="/onepiece">一覧に戻る</a>
+</body>
+</html>

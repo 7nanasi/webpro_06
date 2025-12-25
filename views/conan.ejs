@@ -1,0 +1,27 @@
+<!Doctype html>
+<html>
+<head>
+  <link rel="stylesheet" href="/public/style.css">
+  <meta charset="utf-8">
+  <title>コナン映画リスト</title>
+</head>
+<body>
+  <h2>コナン映画（怪盗キッド登場回）</h2>
+  <table class="list">
+    <tr><th>ID</th><th>作品名</th><th>公開年</th><th>削除</th></tr>
+    <% let number = 0 %>
+    <% for( let row of data ) { %>
+      <tr><td><%= row.id %></td>
+      <td><a href="/conan/<%= number %>"><%= row.name %></a></td>
+      <td><%= row.year %></td>
+      <td><a href="/conan/delete/<%= number %>" onclick="return confirm('本当に削除しますか？');">削除</a></td></tr>
+      <% number += 1 %>
+    <% } %>
+  </table>
+  <a href="/conan/create">新規追加</a>
+</body>
+</html>
+
+<%# 一覧画面 %>
+<!--<td><a href="/conan/delete/<%= number %>">削除</a></td>
+      </tr>-->

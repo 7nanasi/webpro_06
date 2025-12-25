@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <link rel="stylesheet" href="/public/style.css">
+    <meta charset="UTF-8">
+    <title>作品追加</title>
+</head>
+<body>
+    <h2>新しい作品を登録</h2>
+    <form action="/conan" method="POST">
+        <label for="name">作品名:</label><br>
+        <input type="text" name="name" required><br>
+        
+        <label for="year">公開年:</label><br>
+        <input type="text" name="year"><br>
+        
+        <label for="summary">あらすじ:</label><br>
+        <input type="text" name="summary"><br>
+        
+        <label for="point">見どころ:</label><br>
+        <input type="text" name="point"><br>
+        
+        <input type="submit" value="登録">
+    </form>
+    <a href="/conan">一覧に戻る</a>
+</body>
+</html>
+
