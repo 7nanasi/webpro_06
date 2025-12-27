@@ -1,224 +1,127 @@
 @charset "utf-8";
 
-/* =========================================
-   1. 基本設定 (Base)
-   ========================================= */
+/*基本設定*/
 body {
-    font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", sans-serif;/* フォント（書体）の指定。MacやWindowsで見やすいゴシック体を優先順に並べています */
-    background-color: #f4f7f9; /* 薄いグレーの背景で目に優しく */
-    color: #333; /* 文字色を「濃いグレー」に設定。真っ黒(#000)より柔らかい印象になります */
-    max-width: 900px; /* コンテンツの横幅が800px以上広がらないように制限します（読みやすくするため） */
-    margin: 0 auto; /* 左右の余白を自動(auto)にして、画面の中央に配置します */
-    padding: 30px; /* 上下左右の内側に20pxの隙間を作ります */
+    font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", sans-serif;
+    background-color: #f4f7f9;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    color: #333;
 }
 
-/* 見出しのデザイン */
 h2 {
-    color: #2c3e50;           /* 文字色を「濃い紺色」にします */
-    border-bottom: 2px solid #3498db; /* 下に2pxの太さの「青い実線」を引きます */
-    padding-bottom: 10px;     /* 文字と下線の間に10pxの隙間を空けます */
-    margin-bottom: 20px;      /* 見出しの下（次の要素との間）に20pxの隙間を空けます */
+    color: #2c3e50;    
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
 }
 
-/* =========================================
-   4. テーブル共通 (Tables)
-   ========================================= */
+/*テーブル共通設定*/
 table {
-    width: 100%;              /* 横幅を親要素（ここではbodyの800px）いっぱいに広げます */
-    border-collapse: collapse;/* セル（マス目）ごとの隙間をなくし、線を一本にします */
-    background-color: #fff;   /* 表の背景を「白」にします（bodyのグレー背景と区別するため） */
-    margin-bottom: 20px;      /* 表の下にスペースを空けます */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 影をつけて、少し浮いているように見せます */
+    width: 100%;
+    background-color: #fff;
+    border-collapse: collapse;
+    margin-bottom: 30px;
 }
 
-/*5. セル（マス目）のデザイン (th, td)
-<th>（見出しセル）と<td>（データセル）共通の設定です。 */
 th, td {
-    border: 1px solid #ddd;   /* 薄いグレーの枠線をつけます */
-    padding: 12px 15px;       /* セル内の文字の周りに余白を作り、窮屈さをなくします12上下、15左右 */
-    text-align: left;         /* 文字を左寄せにします */
+    border: 1px solid #ddd;
+    padding: 15px 15px;
+    text-align: left;
 }
 
-/* 6. 表の見出し専用デザイン (th)
-テーブルの一番上の行（ID、名称、住所など）の設定です。 */
 th {
-    background-color: #3498db; /* 背景を「鮮やかな青」にします */
-    color: #fff;               /* 文字色を「白」にします */
-    white-space: nowrap;       /* 見出しの文字が勝手に改行されないようにします */
+    background-color: #3498db;
+    color: #fff;
 }
-
-/* =========================================
-   5. 詳細画面用テーブル (Key-Value形式)
-   ========================================= */
-/* nagoya_detail.ejs のような、左列が見出し、右列がデータの形式 */
-/* 詳細画面などで、左側の項目名（1列目）が勝手に改行されないようにする */
-td:first-child {
-    white-space: nowrap; /* ここで「折り返し禁止」を指定します */
-    min-width: 80px;     /* 最低限の幅も確保しておきます */
-    font-weight: bold;   /* ついでに太字にして見出しっぽくします */
-    /*background-color: #f0f0f0; /* 背景を少しグレーにして見やすくします */
-}
-
-/* 右側のデータ（長い文章など）の設定 */
-/*td:last-child {
-    /*white-space: pre-wrap; /* データ内の改行コード(\n)を反映させつつ、端まで来たら折り返す */
-    /*word-wrap: break-word; /* 長い言葉があっても枠内に収める */
-    /*word-break: break-all;
-}*/
 
 tr:nth-child(even) {
-    background-color: #f9f9f9; /* 1行おきに色を変えて見やすく、偶数行（2, 4, 6行目...）の背景を「ごく薄いグレー」 *//* 偶数番目(even)の行(tr)だけ、背景色を薄いグレーにする */
-}
-/* =========================================
-   6. 一覧画面用テーブル (.list クラス)
-   ========================================= */
-/* nagoya.ejs のような、データが羅列される形式
-   ※詳細画面用の設定(td:first-child等)をここで打ち消します */
-/* 一覧の1列目（ID列）のスタイルリセット ！*/
-.list td:first-child {
-    /*background-color: transparent; /* 詳細画面のグレーを透明に戻す */
-    font-weight: normal;           /* 太字を解除 */
-    width: auto;
+    background-color: #f9f9f9;
 }
 
-/* ★追加：左から2番目の列（名称）を改行禁止にする */
-.list td:nth-child(2) {
+/*詳細画面用テーブル*/
+.detail td:first-child {
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.list td:last-child {
     white-space: nowrap;
 }
 
-/* 一覧画面（listクラス）の最後の列（削除ボタン）の修正 */
-.list td:last-child {
-    white-space: nowrap;  /* 勝手に改行させない */
-    width: 50px;          /* 最低限の幅を確保 */
-    text-align: center;   /* 文字を真ん中に寄せる */
-    /*background-color: #fff; /* 背景色を白に戻す（詳細画面の影響を消す場合） */
-    font-weight: normal;
-}
-
-/* =========================================
-   2. リンク・ボタン (Buttons)
-   ========================================= */
-/* リンク（ボタン風のデザイン含む） */
+/*リンク・ボタン*/
 a {
-    color: #3498db;           /* リンクの色を「青」にします */
-    text-decoration: none;    /* リンクの下線（アンダーライン）を消します */
-    margin-right: 10px;       /* リンク、ボタンの右側に少し隙間を空けます */
+    color: #3498db;
+    text-decoration: none;
 }
 
-a:hover {                     /* マウスカーソルが乗った時（ホバー時）の設定 */
-    text-decoration: underline; /* マウスが乗った時だけ下線を表示します */
+a:hover {
+    text-decoration: underline;
 }
 
-/* 「一覧に戻る」「追加」などのリンクをボタンっぽくする */
-body > a {
-    display: inline-block;    /* ボタンのようなブロック要素として扱えるようにします */
-    background-color: #95a5a6;/* 背景を「グレー」にします */
-    color: white;             /* 文字色を「白」にします */
-    padding: 10px 20px;       /* ボタンの大きさを確保するための内側の余白です */
-    border-radius: 4px;       /* 角を少し丸くします（4px） */
-    margin-top: 10px;         /* 上に隙間を空けます */
-    text-decoration: none;    /* 下線はなしです */
+a[href$="/create"],
+a[href*="/edit/"] {
+    background-color: #e67e22;
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 5px;
+    color: white;
+    margin-right: 20px;
 }
 
-body > a:hover {              /* マウスが乗った時 */
-    background-color: #7f8c8d;/* 背景色を少し濃くして、押せそうな反応を返します */
-    text-decoration: none; /* 下線はなしです */
-}
-
-/* 「追加」リンクだけ目立たせる（一覧画面用） */
-a[href$="/create"],     /* リンク先が「/create」のものだけ特定して指定 *//* $= は「～で終わる」という意味です */
-a[href*="/edit/"] {     /* *= は「～を含む」という意味です */
-    background-color: #e67e22;/* 背景を「オレンジ」にします */
-}
 a[href$="/create"]:hover,
 a[href*="/edit/"]:hover {
-    background-color: #d35400;/* マウスが乗ったら「濃いオレンジ」にします */
+    background-color: #d35400;
+    text-decoration: none;
 }
 
-/* =========================================
-   3. フォーム (Forms) - 新規登録・編集
-   ========================================= */
-/* フォーム（新規登録・編集）のデザイン */
-/* 11. 入力フォームの枠 (form)
-登録画面や編集画面のフォーム全体の設定 */
-form {
-    background-color: #fff;   /* 背景を白にします */
-    padding: 20px;            /* 内側に余白を取ります */
-    border-radius: 5px;       /* 角を丸くします */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 影をつけて浮き上がらせます */
-    margin-bottom: 20px;      /* 下に隙間を空けます */
+a[href*="/delete/"] {
+    color: #dc3545;
 }
 
-/* 12. 入力項目のラベル (label)
-「名称:」「住所:」などのテキスト部分です。 */
-label {
-    font-weight: bold;        /* 文字を太字にします */
-    display: block;           /* ブロック要素にして、必ず改行されるようにします */
-    margin-top: 10px;         /* 上の項目との間隔を空けます */
-    margin-bottom: 5px;       /* 入力欄との間隔を少し空けます */
+a[href*="/delete/"]:hover {
+    color: #a71d2a;
 }
 
-/* 入力欄のデザイン */
-/* 13. テキスト入力欄 (input[type="text"])
-文字を入力するボックスのデザインです。 */
-input[type="text"] {
-    width: 100%;              /* 横幅いっぱいに広げます */
-    padding: 15px;            /* 入力欄の内側を広げて、文字を打ちやすくします */
-    font-size: 18px;        /* ← この行を追加！文字を大きくします（標準は16px程度） */
-    margin-bottom: 15px;      /* 次の項目との間隔を空けます */
-    border: 1px solid #ccc;   /* 薄いグレーの枠線を引きます */
-    border-radius: 4px;       /* 角を少し丸くします */
-    box-sizing: border-box;   /* 重要！ パディング（内側の余白）を含めて100%の幅になるように計算させます（これが無いとはみ出します） */
-}
-
-/* 送信ボタンのデザイン */
 input[type="submit"] {
-    background-color: #2ecc71;/* 背景を「緑色」にして、ポジティブなアクションであることを示します */
-    color: white;             /* 文字は白 */
-    padding: 12px 24px;       /* ボタンを大きく押しやすくします */
-    border: none;             /* デフォルトの枠線を消します */
-    border-radius: 4px;       /* 角丸 */
-    cursor: pointer;          /* マウスを乗せた時に指マークカーソルにします */
-    font-size: 16px;          /* 文字を少し大きくします */
-    width: 100%;              /* スマホでも押しやすいよう、横幅いっぱいに広げます */
+    background-color: #2ecc71;
+    color: white;
+    padding: 14px 26px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: auto;
 }
 
-input[type="submit"]:hover {  /* マウスが乗った時 */
-    background-color: #27ae60;/* 少し濃い緑にします */
+input[type="submit"]:hover {
+    background-color: #27ae60;
 }
 
+/*フォーム */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+}
 
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-/* 複数行の入力欄（テキストエリア）のデザイン */
-textarea {
+input[type="text"] {
     width: 100%;
-    height: 200px;       /* 高さをたっぷりとります */
-    padding: 15px;       /* 内側の余白（inputと同じ） */
-    font-size: 18px;     /* 文字サイズ（inputと同じ） */
+    padding: 15px;
+    font-size: 18px;
+    margin-bottom: 30px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
     box-sizing: border-box;
-    margin-bottom: 15px;
-    font-family: inherit; /* フォントをbodyに合わせる */
-    resize: vertical;    /* 縦方向だけサイズ変更できるようにする */
 }
-
-
-
-
-
-
-
 
 

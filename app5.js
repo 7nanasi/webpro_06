@@ -41,7 +41,7 @@ app.post("/nagoya", (req, res) => {
   const point = req.body.point;
   nagoyaList.push({ id: id, name: name, address: address, summary: summary, point: point });
   console.log( nagoyaList );
-  res.render('nagoya', { data: nagoyaList });
+  res.redirect('/nagoya');
 });
 
 // Read詳細表示
@@ -97,7 +97,7 @@ let onepieceList = [
   { id: 16, name: "ホールケーキアイランド編", episodes: "783-877話", summary: "サンジを奪還するためビッグ・マムのナワバリへ。政略結婚を強いられたサンジの本心を引き出し、結婚式を破壊する。最強の将星カタクリとの死闘を制し、ジンベエの援護を受けながら決死の脱出を果たす。", point: "四皇の縄張りでの極限の奪還作戦" },
   { id: 17, name: "世界会議(レヴェリー)編", episodes: "878-889話", summary: "4年に一度の世界会議が開催。各国の王族が集まる裏で、革命軍が天竜人への宣戦布告を画策。七武海制度の撤廃や、謎の存在「イム様」の登場など、世界の均衡を揺るがす重大な事実が次々と動き出す。", point: "世界情勢の大きなうねりと革命軍の動き" },
   { id: 18, name: "ワノ国編", episodes: "890-1088話", summary: "鎖国国家ワノ国で、カイドウとオロチの支配からの解放を目指す。討ち入りの夜、最悪の世代と侍たちが四皇二人の同盟に挑む。ルフィは「ニカ」として覚醒し、最強生物カイドウとの死闘に勝利する。", point: "侍たちの悲願と四皇カイドウ、ビックマムとの総力戦" },
-  { id: 19, name: "エッグヘッド編", episodes: "1089話〜", summary: "未来島エッグヘッドで天才科学者ベガパンクと遭遇。「空白の100年」に触れたことで政府に命を狙われる彼を助けるため、海軍大将黄猿や五老星、CP0との混戦に挑む。くまの悲しき過去と世界の真実が明かされる。", point: "明かされる世界の秘密と科学者ベガパンク" },
+  { id: 19, name: "エッグヘッド編", episodes: "1089話-", summary: "未来島エッグヘッドで天才科学者ベガパンクと遭遇。「空白の100年」に触れたことで政府に命を狙われる彼を助けるため、海軍大将黄猿や五老星、CP0との混戦に挑む。くまの悲しき過去と世界の真実が明かされる。", point: "明かされる世界の秘密と科学者ベガパンク" },
 ];
 
 // 一覧
@@ -119,7 +119,7 @@ app.post("/onepiece", (req, res) => {
   const point = req.body.point;
   onepieceList.push({ id: id, name: name, episodes: episodes, summary: summary, point: point });
   console.log( onepieceList );
-  res.render('onepiece', { data: onepieceList });
+  res.redirect('/onepiece');
 });
 
 // Read詳細表示
@@ -180,12 +180,12 @@ app.get("/conan/create", (req, res) => {
 app.post("/conan", (req, res) => {
   const id = conanList.length + 1;
   const name = req.body.name;
-  const year = req.body.year; // year -> episodes
+  const year = req.body.year;
   const summary = req.body.summary;
   const point = req.body.point;
   conanList.push({ id: id, name: name, year: year, summary: summary, point: point });
   console.log( conanList );
-  res.render('conan', { data: conanList });
+  res.redirect('/conan');
 });
 
 // Read詳細表示
@@ -354,6 +354,11 @@ app.get("/janken", (req, res) => {
     total: total
   }
   res.render( 'janken', display );
+});
+
+
+app.use( (req, res, next) => {
+  res.status(404).send('ページが見つかりません');
 });
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
